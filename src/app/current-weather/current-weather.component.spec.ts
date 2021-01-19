@@ -1,12 +1,12 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { injectSpy } from 'angular-unit-test-helper'
-import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { of } from 'rxjs'
 
 import { WeatherService } from '../weather/weather.service'
-import { CurrentWeatherComponent } from './current-weather.component'
 import { fakeWeather } from '../weather/weather.service.fake'
+import { CurrentWeatherComponent } from './current-weather.component'
 
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
@@ -14,13 +14,18 @@ describe('CurrentWeatherComponent', () => {
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
 
   beforeEach(async () => {
-    const weatherServiceSpy = jasmine.createSpyObj('WeatherService', ['getCurrentWeather'])
+    const weatherServiceSpy = jasmine.createSpyObj('WeatherService', [
+      'getCurrentWeather',
+    ])
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [CurrentWeatherComponent],
-      providers: [{
-        provide: WeatherService, useValue: weatherServiceSpy
-      }]
+      providers: [
+        {
+          provide: WeatherService,
+          useValue: weatherServiceSpy,
+        },
+      ],
     }).compileComponents()
     weatherServiceMock = injectSpy(WeatherService)
   })
@@ -63,5 +68,4 @@ describe('CurrentWeatherComponent', () => {
     const titleEl: HTMLElement = debugEl.query(By.css('span')).nativeElement
     expect(titleEl.textContent).toContain('Bethesda')
   })
-
 })

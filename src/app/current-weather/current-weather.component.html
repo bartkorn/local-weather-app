@@ -1,17 +1,17 @@
 <div *ngIf="!current">
-    No data
+  No data
 </div>
 
 <div *ngIf="current">
-    <div>
-        <span>{{current.city}}, {{current.country}}</span>
-        <span>{{current.date | date: 'fullDate'}}</span>
-    </div>
-    <div class="weather-indicator">
-        <img class="weather-img-indicator" [src]="current.image">
-        <span>{{current.temperature | number: '1.0-0'}} &#8457;</span>
-    </div>
-    <div>
-        {{current.description}}
-    </div>
+  <div>
+    <span>{{current.city}}, {{current.country}}</span>
+    <span>{{current.date | date: 'fullDate'}}</span>
+  </div>
+  <div class="weather-indicator">
+    <img class="weather-img-indicator" [src]="current.image">
+    <span>{{current.temperature | number: '1.0-0'}} &#8457;</span>
+  </div>
+  <div>
+    {{current.description}}
+  </div>
 </div>
