@@ -1,12 +1,11 @@
-.weather-indicator {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px;
+.right {
+    text-align: right;
 }
 
-.weather-img-indicator {
-  width: 20px;
-  height: 20px;
-  padding: 0 2px;
+.no-margin {
+    margin-bottom: 0;
+}
+
+.unit {
+    vertical-align: super;
 }
