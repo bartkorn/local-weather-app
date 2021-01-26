@@ -6,10 +6,12 @@
     <div fxFlex="66%" class="mat-title no-margin">{{current.city}}, {{current.country}}
     </div>
     <div fxFlex class="right mat-h3 no-margin">
-      {{current.date | date: 'EEEE MMM d'}}{{getOrdinal(current.date)}}</div>
+      {{current.date | date: 'EEEE MMM d'}}{{getOrdinal(current.date)}}
+    </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="center center">
-    <div fxFlex="66%"><img style="zoom: 175%" [src]="current.image"></div>
+    <div fxFlex="66%"><img style="zoom: 175%" [src]="current.image"
+        [alt]="current.description"></div>
     <div fxFlex class="right mat-display-3 no-margin">
       <p class="mat-display-3">
         {{current.temperature | number: '1.0-0'}}<span
