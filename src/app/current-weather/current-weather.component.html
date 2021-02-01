@@ -1,7 +1,4 @@
-<div *ngIf="!current">
-  No data
-</div>
-<div *ngIf="current">
+<div *ngIf="current$ | async as current">
   <div fxLayout="row">
     <div fxFlex="66%" class="mat-title no-margin">{{current.city}}, {{current.country}}
     </div>
@@ -15,7 +12,7 @@
     <div fxFlex class="right mat-display-3 no-margin">
       <p class="mat-display-3">
         {{current.temperature | number: '1.0-0'}}<span
-          class="mat-display-1 unit">&#8457;</span>
+          class="mat-display-1 unit">&#8451;</span>
       </p>
     </div>
   </div>
